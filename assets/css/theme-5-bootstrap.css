@@ -1459,6 +1459,31 @@ img {
     height: auto
 }
 
+.img-responsive6 {
+    /* styles for all devices */
+    display: block;
+    max-width: 15%;
+    height: auto
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .img-responsive6 {
+      /* styles for devices with a maximum width of 600px (e.g. phones) */
+      display: block;
+      max-width: 100%;
+      height: auto
+    }
+  }
+  
+  @media only screen and (min-width: 601px) {
+    .img-responsive6 {
+      /* styles for devices with a minimum width of 601px (e.g. PCs) */
+      display: block;
+      max-width: 15%;
+      height: auto
+    }
+  }
+
 .img-rounded {
     -webkit-border-radius: 4px;
     border-radius: 4px
