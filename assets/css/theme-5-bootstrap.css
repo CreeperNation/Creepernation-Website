@@ -1470,7 +1470,7 @@ img {
     .img-responsive6 {
       /* styles for devices with a maximum width of 600px (e.g. phones) */
       display: block;
-      max-width: 100%;
+      max-width: 90%;
       height: auto
     }
   }
