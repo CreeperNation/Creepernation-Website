@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "main": "pm2 start index.js --name CN-Website"
+    "main": "pm2 start index.js --name CN-Website --watch"
   },
   "repository": {
     "type": "git",
