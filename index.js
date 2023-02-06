@@ -12,11 +12,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-  console.log(`${req.method} request from IP: ${req.ip}`);
-  next();
-});
-
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/*', (req, res) => {
