@@ -12,12 +12,20 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use((req, res, next) => {
+  console.log(`${req.method} request from IP: ${req.ip}`);
+  next();
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/:page", (req, res) => {
-  console.log(`${req.method} request from IP: ${req.ip}`);
-  const page = req.params.page;
-  res.sendFile(path.join(__dirname, "public", `${page}.html`));
+app.get('/*', (req, res) => {
+  const filePath = path.join(__dirname, 'public', req.url + ".html");
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      res.redirect('https://lunareclipse.studio/404');
+    }
+  });
 });
 
 app.listen(port, () => {
