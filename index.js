@@ -1,7 +1,16 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const path = require("path");
 const port = 7000;
+
+// CORS Headers
+const corsOptions = {
+  origin: ["https://www.creepernation.net", "https://creepernation.net", "https://docs.creepernation.net"],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, "public")));
 
