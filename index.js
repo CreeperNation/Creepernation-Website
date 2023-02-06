@@ -16,11 +16,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/*', (req, res) => {
   const filePath = path.join(__dirname, 'public', req.url + ".html");
-  res.sendFile(filePath, (err) => {
-    if (err) {
-      res.redirect('https://lunareclipse.studio/404');
-    }
-  });
+  res.sendFile(filePath);
 });
 
 app.listen(port, () => {
