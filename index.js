@@ -14,9 +14,22 @@ app.use(cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/*', (req, res) => {
-  const filePath = path.join(__dirname, 'public', req.url + ".html");
-  res.sendFile(filePath);
+app.get('/*', (req, res, next) => {
+  const filePath = path.join(__dirname, 'public', req.url.substring(1) + ".html");
+  res.sendFile(filePath, (error) => {
+    if (error) {
+        // console.error(error);
+        return next();
+    }
+  });
+});
+
+// 404
+app.use((req, res, next) => {
+  if (res.status(404)) {
+    const missingFilePath = path.join(__dirname, 'public', '404.html');
+    res.sendFile(missingFilePath);
+  }
 });
 
 app.listen(port, () => {
