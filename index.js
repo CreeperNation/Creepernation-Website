@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require("path");
-const websiteName = "CreeperNation Website"
+const websiteName = "CreeperNation"
 const port = 7000;
 
 // CORS Headers
